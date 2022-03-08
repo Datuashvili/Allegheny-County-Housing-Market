@@ -1,6 +1,4 @@
 altair==4.1.0
-anaconda-client==1.7.2
-anaconda-navigator==2.1.1
 appdirs==1.4.4
 argh==0.26.2
 astor==0.8.1
