@@ -1,14 +1,8 @@
 import streamlit as st
 import pandas as pd
 import pickle as pkl
-import gzip, pickletools
 import numpy as np
 from PIL import Image
-import matplotlib.pyplot as plt
-import requests
-import urllib.parse
-import time
-import io
 import sklearn
 from sklearn.preprocessing import StandardScaler
 from sklearn.pipeline import Pipeline
@@ -17,7 +11,6 @@ from sklearn.compose import ColumnTransformer
 from sklearn.linear_model import Ridge
 from sklearn.preprocessing import OneHotEncoder
 from sklearn.preprocessing import MaxAbsScaler
-import altair as alt
 import pydeck as pdk
 from pandas.tseries.offsets import DateOffset
 from statsmodels.tsa.arima_model import ARIMA
