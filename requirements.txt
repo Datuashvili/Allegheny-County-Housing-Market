@@ -104,8 +104,6 @@ shap==0.40.0
 Shapely==1.8.0
 
 
-sip==4.19.13
-
 slicer==0.0.7
 smmap==4.0.0
 
