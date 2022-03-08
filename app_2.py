@@ -1,5 +1,3 @@
-#streamlit run Desktop\capstone_data\app_2.py
-
 import streamlit as st
 import pandas as pd
 import pickle as pkl
@@ -28,12 +26,12 @@ import plotly.graph_objects as go
 
 #data
 
-house_data = pd.read_pickle("Desktop\capstone_data\data_64_zip.pkl")
-best_para = pd.read_pickle("Desktop\capstone_data\\1_best_para.pkl")
-ts = pd.read_pickle("Desktop\capstone_data\\1_TS.pkl")
+house_data = pd.read_pickle("data_64_zip.pkl")
+best_para = pd.read_pickle("1_best_para.pkl")
+ts = pd.read_pickle("1_TS.pkl")
 
 
-icon = Image.open("Desktop\capstone_data\Bridge.svg")
+icon = Image.open("Bridge.svg")
 st.set_page_config(layout='wide', page_title='Allegheny County Housing', page_icon=icon)
 
 
@@ -67,8 +65,8 @@ with row1_3:
     by using SARIMAX model.
     """) 
     
-image = Image.open("Desktop\capstone_data\image-8124.jpg")
-row1_2.image(Image.open("Desktop\capstone_data\image-8124.jpg"), use_column_width=True)
+image = Image.open("image-8124.jpg")
+row1_2.image(Image.open("image-8124.jpg"), use_column_width=True)
 
 null2_1, row2_1, row2_2, null2_5= st.columns((0.1, 5,5, 0.1))
 
