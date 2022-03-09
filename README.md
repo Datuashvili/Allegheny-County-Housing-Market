@@ -28,6 +28,10 @@ If are planning future family, retirement in the second section you will be able
 
 ### Gather and analyze data 
 
-For project I coolected data from the Office of Property Assessments in Allegheny County [The Western Pennsylvania Regional Data Center](https://data.wprdc.org/dataset/property-assessments)
+For project I collected data from [The Western Pennsylvania Regional Data Center](https://data.wprdc.org/dataset/property-assessments). 
+I selected only last 11 years records to avoid market shoks coused by 2008 housing market booble and have more acurate predictions. Data went through cleaning, outlier removal and feature engineering process. 
+
+**Heatmap:** let's use heatmap to Check the correlation between our dependant variable **'SALEPRICE'** against the main features:
+![heatmap](https://github.com/Datuashvili/Allegheny-County-Housing-Market/blob/main/heatmap.png)
 
 
