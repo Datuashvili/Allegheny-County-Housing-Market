@@ -24,4 +24,5 @@ App givs opportunity to find out what is the present value of the hous based on 
 * The original date of construction
 
 
+Second section of the app is for these who are planning future family, retirement. hHere yoy will be able to obser forecasted prices and trend per zip-code.
 
