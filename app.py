@@ -33,7 +33,7 @@ null0_1, row0_2, row0_3, row0_4, null0_3 = st.columns((0.1, 5, 20, 5, 0.1))
 with row0_3:
     st.title("Allegheny County Housing Market")
     
-null1_1, row1_2, row1_3, row1_4, null1_3 = st.columns((0.1, 5, 25, 5, 0.1))    
+null1_1, row1_2, row1_3, row1_4, null1_3 = st.columns((0.1, 5, 20, 5, 0.1))    
 
 with row1_3:
     st.write("""**Web App for House Price Estimation, Forecast and Zip-code trends in Allegheny county, PA**""")   
