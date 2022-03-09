@@ -54,7 +54,7 @@ For House Price Forecast and Trend:
 ![SARIMAX](https://github.com/Datuashvili/Allegheny-County-Housing-Market/blob/main/4.png)
 
 Let's see how the map will change based on predictions 
-[["github.com/Datuashvili/Allegheny-County-Housing-Market/blob/main/diff_time_forecast.png " |width=400px]]
+("github.com/Datuashvili/Allegheny-County-Housing-Market/blob/main/diff_time_forecast.png " |width=400px)
 
 
 
