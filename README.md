@@ -55,6 +55,9 @@ For House Price Forecast and Trend:
 
 Let's see how the map will change based on predictions 
 <img src="github.com/Datuashvili/Allegheny-County-Housing-Market/blob/main/diff_time_forecast.png "" width="600">
+                                                                                                                
+                                                                                                                
+                                                                                                                
 [[github.com/Datuashvili/Allegheny-County-Housing-Market/blob/main/diff_time_forecast.png  |width=400px]]
 
 
