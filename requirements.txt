@@ -1,7 +1,8 @@
-streamlit==0.88.0
+streamlit
 pandas
 numpy
-plotly==5.6.0
-pydeck==0.7.0
-statsmodels==0.12.2
+plotly
+pydeck
+statsmodels
 scikit-learn 
+python-dotenv
