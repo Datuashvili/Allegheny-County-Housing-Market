@@ -2,12 +2,14 @@
 
 ![Pittsburgh_skyline_panorama_at_night](https://github.com/Datuashvili/Allegheny-County-Housing-Market/blob/main/Pittsburgh_skyline_panorama_at_night.jpg)
 
-This project is intended to help future and present Allegheny County residents to find out what the reasonable price is for a house in Allegheny county, PA. 
-Whether you are buing or  selling App offers estimates and forecasts to help you make informed decision.
-App has two parts.
+### Introduction
 
-First part - House Price Estimation is for these who are selling, buying, refinancing, or even remodeling a home house in real time. 
-App givs opportunity to find out what is the present value of the hous based on many features:
+This project is intended to help future and present Allegheny County residents to find out what the reasonable price is for a house in Allegheny county, PA. 
+
+Whether you are buing or selling a house App offers estimates and forecasts to help you make informed decision.
+
+If you are selling, buying, refinancing, or even remodeling a home house in real time the App gives opportunity to find out what is the present value of the house based on location and other features:
+
 * Total square footage of land
 * Living Space - Sqft
 * Stories
@@ -15,14 +17,17 @@ App givs opportunity to find out what is the present value of the hous based on 
 * Total bedrooms
 * Full bathroom
 * Half bathroom
-* Fireplace
-* Zip Code 
+* Fireplace 
 * Condition
 * The exterior wall type
 * The roofing material type
 * Description for building style
 * The original date of construction
 
+If are planning future family, retirement in the second section you will be able to observ forecasted prices(for next two years) and price trend per zip-code.
 
-Second section of the app is for these who are planning future family, retirement. hHere yoy will be able to obser forecasted prices and trend per zip-code.
+### Gather and analyze data 
+
+For project I coolected data from the Office of Property Assessments in Allegheny County ![The Western Pennsylvania Regional Data Center](https://data.wprdc.org/dataset/property-assessments)
+
 
