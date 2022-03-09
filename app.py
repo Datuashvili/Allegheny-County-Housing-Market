@@ -28,48 +28,31 @@ icon = Image.open("Bridge.svg")
 st.set_page_config(layout='wide', page_title='Allegheny County Housing', page_icon=icon)
 
 
-null0_1, row0_2, null0_2, row0_3, null0_3 = st.columns((0.23, 5, 0.1, 5, 0.1))
+null0_1, row0_2, row0_3, row0_4, null0_3 = st.columns((0.1, 5, 20, 5, 0.1))
 
-with row0_2:
+with row0_3:
     st.title("Allegheny County Housing Market")
-    st.write(
-    """
-    **Web App for House Price Estimation, Forecast and Zip-code trends in Allegheny county, PA**
-    """)   
-
-# Row number (1): This is to give the App Introduction: we'll have 5 Columns:
-null1_1, row1_2, null1_2, row1_3, null1_3 = st.columns((0.23, 5, 0.3, 5, 0.17))
-
-# Let's give a brief summary about our app Menara:
-
-with row1_3:
-    st.write(
-    """
-      ### **Introduction**
-    """) 
-
-with row1_3:
-    st.write(
-    """
-    Whether you want to buy, sell, refinance, or even remodel a home, the APP offers estimates and forecasts to help you make the most informed decision. 
-    With a user-friendly interface, and offering many resources for buyers, sellers, and landlords alike. **MENARA** offers:
-    * The lowest 8.5% margin off-error for off-market homes in Allegheny county by using Machine learning algorithms.
-    * A golden opportunity to give you a sneak peek into the future; Up to 36 Months of house price forecast per zipcode 
-    by using SARIMAX model.
-    """) 
     
-image = Image.open("image-8124.jpg")
-row1_2.image(Image.open("image-8124.jpg"), use_column_width=True)
+null1_1, row1_2, row1_3, row1_4, null1_3 = st.columns((0.1, 5, 25, 5, 0.1))    
 
-null2_1, row2_1, row2_2, null2_5= st.columns((0.1, 5,5, 0.1))
+with row1_3:
+    st.write("""**Web App for House Price Estimation, Forecast and Zip-code trends in Allegheny county, PA**""")   
+    
+null2_1, row2_2, null2_3 = st.columns((0.1, 25, 0.1))
+    
+row2_2.image(Image.open("Pittsburgh_skyline_panorama_at_night.jpg"), use_column_width=True,caption='Pittsburgh skyline panorama at night')
 
 
-with row2_1:
+null3_0, row3_1, row3_2, row3_3, null3_4= st.columns((0.2, 5, 1.7, 5, 0.1))
+
+
+with row3_1:
     st.write(
-    """ ### **Enter House Details**
+    """ 
+    ### **Please Enter House Details**
     """) 
 
-with row2_2: 
+with row3_3: 
     st.write(
     """
     ### **House Price Estimation**
@@ -78,7 +61,7 @@ with row2_2:
 
 
 # Row number (2): in this row we'll have 6 columns:
-null3_1, row3_1, row3_2, row3_3 ,null3_2, row3_4, null3_5= st.columns((0.1, 0.8, 0.8, 0.8,0.05, 1.85, 0.1))
+null4_1, row4_1, row4_2, row4_3 ,null4_2, row4_4, null4_5= st.columns((0.1, 0.8, 0.8, 0.8,0.05, 1.85, 0.1))
 
 
 
@@ -86,33 +69,33 @@ null3_1, row3_1, row3_2, row3_3 ,null3_2, row3_4, null3_5= st.columns((0.1, 0.8,
 # Now, let's divide user's input into 2 groups: House Details & Neighborhood Details and each will be in seperate column: row2_3 & row2_4
 
 def features_from_user():
-    LOTAREA = row3_1.number_input('Total square footage of land', min_value=0, max_value=1231515, value=int(house_data.LOTAREA.median()), help=("min=%s, max=%s" %(0,1231515 )) ),
+    LOTAREA = row4_1.number_input('Total square footage of land', min_value=0, max_value=1231515, value=int(house_data.LOTAREA.median()), help=("min=%s, max=%s" %(0,1231515 )) ),
     
-    FINISHEDLIVINGAREA = row3_1.number_input('Living Space - Sqft', min_value=360, max_value=10196, value=int(house_data.FINISHEDLIVINGAREA.median()), help=("min=%s, max=%s" %(360,10196)) ) ,
+    FINISHEDLIVINGAREA = row4_1.number_input('Living Space - Sqft', min_value=360, max_value=10196, value=int(house_data.FINISHEDLIVINGAREA.median()), help=("min=%s, max=%s" %(360,10196)) ) ,
     
-    STORIES = row3_1.number_input('Stories', min_value=1, max_value=3, value=int(house_data.STORIES.median()), help=("min=%s, max=%s" %(360,10196 )) ),
+    STORIES = row4_1.number_input('Stories', min_value=1, max_value=3, value=int(house_data.STORIES.median()), help=("min=%s, max=%s" %(360,10196 )) ),
     
-    TOTALROOMS = row3_1.number_input('Total rooms', min_value=0, max_value=20, value=int(house_data.TOTALROOMS.median()), help=("min=%s, max=%s" %(0,20)) ) ,
+    TOTALROOMS = row4_1.number_input('Total rooms', min_value=0, max_value=20, value=int(house_data.TOTALROOMS.median()), help=("min=%s, max=%s" %(0,20)) ) ,
     
-    BEDROOMS = row3_1.number_input('Total bedrooms', min_value=0, max_value=12, value=int(house_data.TOTALROOMS.median()), help=("min=%s, max=%s" %(0,12)) ),
+    BEDROOMS = row4_1.number_input('Total bedrooms', min_value=0, max_value=12, value=int(house_data.TOTALROOMS.median()), help=("min=%s, max=%s" %(0,12)) ),
     
-    FULLBATHS = row3_2.number_input('Full bathroom', min_value=0, max_value=7, value=int(house_data.FULLBATHS.median()), help=("min=%s, max=%s" %(0,7)) ),
+    FULLBATHS = row4_2.number_input('Full bathroom', min_value=0, max_value=7, value=int(house_data.FULLBATHS.median()), help=("min=%s, max=%s" %(0,7)) ),
     
-    HALFBATHS = row3_2.number_input('Half bathroom', min_value=0, max_value=10, value=int(house_data.HALFBATHS.median()), help=("min=%s, max=%s" %(0,10)) ),
+    HALFBATHS = row4_2.number_input('Half bathroom', min_value=0, max_value=10, value=int(house_data.HALFBATHS.median()), help=("min=%s, max=%s" %(0,10)) ),
     
-    FIREPLACES = row3_2.selectbox('Fireplace', (0,1,2,3,4,5), index=3 ),
+    FIREPLACES = row4_2.selectbox('Fireplace', (0,1,2,3,4,5), index=3 ),
     
-    PROPERTYZIP = row3_2.selectbox('Zip Code ',options=list(house_data.PROPERTYZIP.unique())),
+    PROPERTYZIP = row4_2.selectbox('Zip Code ',options=list(house_data.PROPERTYZIP.unique())),
     
-    CONDITIONDESC = row3_2.selectbox('Condition',options=list(house_data.CONDITIONDESC.unique()), index=0, help=("Description for the overall physical condition or state of repair of a structure") ),
+    CONDITIONDESC = row4_2.selectbox('Condition',options=list(house_data.CONDITIONDESC.unique()), index=0, help=("Description for the overall physical condition or state of repair of a structure") ),
     
-    EXTFINISH_DESC = row3_3.selectbox('The exterior wall type',options=list(house_data.EXTFINISH_DESC.unique())),
+    EXTFINISH_DESC = row4_3.selectbox('The exterior wall type',options=list(house_data.EXTFINISH_DESC.unique())),
     
-    ROOFDESC = row3_3.selectbox('The roofing material type',options=list(house_data.ROOFDESC.unique())),
+    ROOFDESC = row4_3.selectbox('The roofing material type',options=list(house_data.ROOFDESC.unique())),
     
-    STYLEDESC = row3_3.selectbox('Description for building style',options=list(house_data.STYLEDESC.unique())),
+    STYLEDESC = row4_3.selectbox('Description for building style',options=list(house_data.STYLEDESC.unique())),
     
-    YEARBLT=row3_3.number_input('The original date of construction', min_value=1863, max_value=2022, value=int(house_data.YEARBLT.median()), help=("min=%s, max=%s" %(1863,2022)) )
+    YEARBLT=row4_3.number_input('The original date of construction', min_value=1863, max_value=2022, value=int(house_data.YEARBLT.median()), help=("min=%s, max=%s" %(1863,2022)) )
     
     
     data = {'LOTAREA': LOTAREA,
@@ -140,18 +123,18 @@ def features_from_user():
 
 
 # This will explain what's behind House Price Estimation:
-with row3_4:
+with row4_4:
+    st.write('')
     st.write(
-    """
-    Some text ------------------
-    -----------------
-    ----------------------
-    --------------------------------------------------------
-    """) 
+    """If you are going to buy, sell, refinance, or even remodel a home, the APP offers estimates and forecasts to help you make informed decision. """)
+    st.write(
+    """Please select house features and click on Get Estimate Value button bellow to see estimate. """)
+    st.write('')
+    
     
 
 
-btn1 = row3_4.button('Get Estimated Value')
+btn1 = row4_4.button('Get Estimated Value')
 
 df = features_from_user()
 df['SALEDATE'] = pd.to_datetime('today')
@@ -189,40 +172,44 @@ prediction = int(full_model_pipe.predict(df))
 prediction_nice = f"{prediction:,d}"
 
 if btn1:
-    with row3_4:
+    with row4_4:
         st.write('Based on your selections, the asstimated value of your home is **%s** USD.'  %prediction_nice)
         
 st.write('---')  
 
 
-null4_0,row4_1, row4_2, row4_3 , row4_5= st.columns((0.17,6,0.1, 1.6, 0.17))
+null5_0,row5_1, row5_2, row5_3 , row5_5= st.columns((0.17,6,0.1, 1.6, 0.17))
 
-with row4_1:
+with row5_1:
     st.write(
     """
-    ### **Median House Price Forecast Per Zip Code**
+    ### **House Price Forecast  and Trend Per Zip Code**
     """) 
     
-with row4_1:
+with row5_1:
+    st.write('')
     st.write(
     """
-    Some text-----
+    If you're planning to buy or sell house in next two years please select zip code and click button.
+    You will have opportunity to observ historical price and future prices for next 24 months per Zipcode.
     
     """)  
+    st.write('')
+    
       
-with row4_3:    
+with row5_3:    
     st.write(
     """
     ####
-    #### **Enter Zipcode to Forecast:** 
+    #### **Enter Zipcode for Forecast:** 
     """)     
     
 
 
-zipcode_forecast = row4_3.selectbox('Select Zipcode', options=list(house_data.PROPERTYZIP.unique()))
-btn2 = row4_3.button('Get House Price Forecast')  
+zipcode_forecast = row5_3.selectbox('', options=list(house_data.PROPERTYZIP.unique()))
+btn2 = row5_3.button('Get House Price Forecast')  
 
-
+null6_0,row6_1, row6_2,= st.columns((2,20, 2))
  
 if btn2:
     
@@ -238,7 +225,7 @@ if btn2:
     predicted = pd.DataFrame(output.get_prediction().predicted_mean)
     for_pred=pd.concat([predicted,forecast])
     
-    with row4_1:
+    with row6_1:
             fig1 = go.Figure()
             fig1.add_trace(go.Scatter(x=for_pred.index[1:], y=for_pred['predicted_mean'][1:], 
                                       name='Forecast Price', opacity=0.7,
@@ -260,7 +247,7 @@ if btn2:
                                yaxis_title='Price per sqft')
     st.plotly_chart(fig1, use_container_width=True)
     
-    with row4_1:
+    with row5_1:
             
             predicted_change= ((for_pred.resample('y').mean()[-1:].predicted_mean[0])-(arima_df.resample('y').mean()[-1:].pp_sqft[0]))/(arima_df.resample('y').mean()[-1:].pp_sqft[0])*100
             predicted_change=predicted_change.round(2)
@@ -273,8 +260,9 @@ if btn2:
             elif (predicted_change > 0) & (predicted_change <= 5):    
                 st.warning("According to our Forecast Model, the house price per sqft for the selected Zipcode is expected to grow between 0-5 percent in two years by **%s** percent." %predicted_change)    
             else:
-                st.error("That's a Bummer!. According to our Forecast Model, the median house price for the selected Zipcode is expected to lose some of its value in Two years.")
+                st.error("According to our Forecast Model, the median house price for the selected Zipcode is expected to lose some of its value in Two years.")
                 
+
 
 
 
