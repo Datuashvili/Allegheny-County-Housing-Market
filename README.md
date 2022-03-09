@@ -1,7 +1,6 @@
 # Allegheny County Housing Market Predictions [![Heroku](https://heroku-badge.herokuapp.com/?app=heroku-badge&style=flat)](https://allegheny-county-housing.herokuapp.com/)
 
-![Pittsburgh_skyline_panorama_at_night](https://github.com/Datuashvili/Allegheny-County-Housing-Market
-/blob/main/Pittsburgh_skyline_panorama_at_night.jpg?raw=true)
+![Pittsburgh_skyline_panorama_at_night](https://github.com/Datuashvili/Allegheny-County-Housing-Market/blob/main/Pittsburgh_skyline_panorama_at_night.jpg)
 
 This project is intended to help future and present Allegheny County residents to find out what the reasonable price is for a house in Allegheny county, PA. 
 Whether you are buing or  selling App offers estimates and forecasts to help you make informed decision.
