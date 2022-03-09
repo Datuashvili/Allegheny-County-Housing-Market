@@ -28,6 +28,6 @@ If are planning future family, retirement in the second section you will be able
 
 ### Gather and analyze data 
 
-For project I coolected data from the Office of Property Assessments in Allegheny County ![The Western Pennsylvania Regional Data Center](https://data.wprdc.org/dataset/property-assessments)
+For project I coolected data from the Office of Property Assessments in Allegheny County [The Western Pennsylvania Regional Data Center](https://data.wprdc.org/dataset/property-assessments)
 
 
