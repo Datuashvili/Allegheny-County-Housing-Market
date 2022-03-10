@@ -16,10 +16,14 @@ from pandas.tseries.offsets import DateOffset
 from statsmodels.tsa.arima_model import ARIMA
 import statsmodels.api as sm
 import plotly.graph_objects as go
+from streamlit_folium import folium_static
+import folium
+from folium.map import Icon
+
 
 #data
-
-house_data = pd.read_pickle("data_64_zip.pkl")
+forecast_table = pd.read_pickle('ROI_forecast_table_ALL.pkl')
+house_data = pd.read_pickle("data_73_zip.pkl")
 best_para = pd.read_pickle("1_best_para.pkl")
 ts = pd.read_pickle("1_TS.pkl")
 
@@ -180,28 +184,26 @@ st.write('---')
 
 null5_0,row5_1, row5_2, row5_3 , row5_5= st.columns((0.17,6,0.1, 1.6, 0.17))
 
-with row5_1:
+with row5_3:
     st.write(
     """
     ### **House Price Forecast  and Trend Per Zip Code**
     """) 
     
-with row5_1:
-    st.write('')
+with row5_3:
     st.write(
     """
     If you're planning to buy or sell house in next two years please select zip code and click button.
     You will have opportunity to observ historical price and future prices for next 24 months per Zipcode.
     
     """)  
-    st.write('')
+    
     
       
 with row5_3:    
     st.write(
     """
-    ####
-    #### **Enter Zipcode for Forecast:** 
+    ##### **Enter Zipcode for Forecast:** 
     """)     
     
 
@@ -209,7 +211,7 @@ with row5_3:
 zipcode_forecast = row5_3.selectbox('', options=list(house_data.PROPERTYZIP.unique()))
 btn2 = row5_3.button('Get House Price Forecast')  
 
-null6_0,row6_1, row6_2,= st.columns((2,20, 2))
+
  
 if btn2:
     
@@ -225,7 +227,7 @@ if btn2:
     predicted = pd.DataFrame(output.get_prediction().predicted_mean)
     for_pred=pd.concat([predicted,forecast])
     
-    with row6_1:
+    with row5_1:
             fig1 = go.Figure()
             fig1.add_trace(go.Scatter(x=for_pred.index[1:], y=for_pred['predicted_mean'][1:], 
                                       name='Forecast Price', opacity=0.7,
@@ -245,26 +247,69 @@ if btn2:
                                       'xanchor': 'center','yanchor': 'top'},
                                xaxis_title='Date', height=600,
                                yaxis_title='Price per sqft')
-    st.plotly_chart(fig1, use_container_width=True)
-    
-    with row5_1:
             
-            predicted_change= ((for_pred.resample('y').mean()[-1:].predicted_mean[0])-(arima_df.resample('y').mean()[-1:].pp_sqft[0]))/(arima_df.resample('y').mean()[-1:].pp_sqft[0])*100
-            predicted_change=predicted_change.round(2)
-            if predicted_change > 15:
-                st.success("According to our Forecast Model, the house price per sqft for the selected Zipcode is expected to grow more than 15 percent in two years by **%s** percent." %predicted_change)
-            elif (predicted_change > 10) & (predicted_change <= 15):
-                st.success("According to our Forecast Model, the house price per sqft for the selected Zipcode is expected to grow between 10-15 percent in two years by **%s** percent." %predicted_change)    
-            elif (predicted_change > 5) & (predicted_change <= 10):    
-                st.info("According to our Forecast Model, the house price per sqft for the selected Zipcode is expected to grow between 5-10 percent in two years by **%s** percent." %predicted_change)
-            elif (predicted_change > 0) & (predicted_change <= 5):    
-                st.warning("According to our Forecast Model, the house price per sqft for the selected Zipcode is expected to grow between 0-5 percent in two years by **%s** percent." %predicted_change)    
-            else:
-                st.error("According to our Forecast Model, the median house price for the selected Zipcode is expected to lose some of its value in Two years.")
+            with row5_1:
+                st.plotly_chart(fig1, use_container_width=True)
                 
+    with row5_3: 
+        predicted_change= ((for_pred.resample('y').mean()[-1:].predicted_mean[0])-(arima_df.resample('y').mean()[-1:].pp_sqft[0]))/(arima_df.resample('y').mean()[-1:].pp_sqft[0])*100
+        predicted_change=predicted_change.round(2)
+        if predicted_change > 15:
+            st.success("According to our Forecast Model, the house price per sqft for the selected Zipcode is expected to grow more than 15 percent in two years by **%s** percent." %predicted_change)
+        elif (predicted_change > 10) & (predicted_change <= 15):
+            st.success("According to our Forecast Model, the house price per sqft for the selected Zipcode is expected to grow between 10-15 percent in two years by **%s** percent." %predicted_change)
+        elif (predicted_change > 5) & (predicted_change <= 10):
+            st.info("According to our Forecast Model, the house price per sqft for the selected Zipcode is expected to grow between 5-10 percent in two years by **%s** percent." %predicted_change)
+        elif (predicted_change > 0) & (predicted_change <= 5):    
+            st.warning("According to our Forecast Model, the house price per sqft for the selected Zipcode is expected to grow between 0-5 percent in two years by **%s** percent." %predicted_change)    
+        else:
+            st.error("According to our Forecast Model, the median house price for the selected Zipcode is expected to lose some of its value in Two years.")
+                
+st.write('---') 
+
+null6_0,row6_1, row6_2,= st.columns((10,20, 10))
+
+with row6_1:
+    st.write("""
+    ### **Interactive Map for Zip-code comparison**
+    """)
+
+st.write("""
+#
+""") 
+
+null7_0,row7_1, row7_2,= st.columns((10,20, 10))
+
+pitt_map = folium.Map(location=[40.45, -79.97],
+                        zoom_start=10,
+                        tiles='CartoDB positron')
+
+def forecast_map(X):
+    for i in X.index:
+        lat = X.latitude[i]
+        long = X.longitude[i]
+        Zipcode=X.Zipcode[i]
+        ROI=X['2Yr-ROI'][i].round(1)
+        Population=X['irs_estimated_population'][i]
+        marker = folium.Marker([lat, long]).add_to(pitt_map)
+        popup_text = "Zipcode: {} \nROI: {}  \nPopulation: {} \ ".format(ROI,Zipcode,Population)
+        popup = folium.Popup(popup_text, parse_html=True)
+        if X['2Yr-ROI'][i] <0:
+            marker = folium.Marker([lat,long], popup=popup, icon=Icon(color='darkred', icon_color='white', icon='info-sign')).add_to(pitt_map)
+        elif X['2Yr-ROI'][i]<5:
+            marker = folium.Marker([lat,long], popup=popup, icon=Icon(color='gray', icon_color='white', icon='home')).add_to(pitt_map)
+        elif X['2Yr-ROI'][i]<15:
+            marker = folium.Marker([lat,long], popup=popup, icon=Icon(color='blue', icon_color='white', icon='home')).add_to(pitt_map)
+        elif X['2Yr-ROI'][i]>15:
+            marker = folium.Marker([lat,long], popup=popup, icon=Icon(color='darkgreen', icon_color='white', icon='cloud')).add_to(pitt_map)
+    return pitt_map
+
+with row7_1:
+    folium_static(forecast_map(forecast_table))
 
 
-
-
-
-
+null8_0,row8_1, row8_2,= st.columns((10,20, 10))
+with row8_1:
+    st.write("""
+  \n * ROI - Return on investment in two years based last year average price \n * Population based IRS estimate
+""") 
