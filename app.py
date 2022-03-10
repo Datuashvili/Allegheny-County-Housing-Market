@@ -194,7 +194,7 @@ with row5_3:
     st.write(
     """
     If you're planning to buy or sell house in next two years please select zip code and click button.
-    You will have opportunity to observ historical price and future prices for next 24 months per Zipcode.
+    You will have opportunity to observe historical price and future prices for next 24 months per Zipcode.
     
     """)  
     
