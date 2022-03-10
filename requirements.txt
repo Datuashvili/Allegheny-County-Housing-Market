@@ -6,3 +6,5 @@ pydeck
 statsmodels
 scikit-learn 
 python-dotenv
+folium
+streamlit_folium
