@@ -292,7 +292,7 @@ def forecast_map(X):
         ROI=X['2Yr-ROI'][i].round(1)
         Population=X['irs_estimated_population'][i]
         marker = folium.Marker([lat, long]).add_to(pitt_map)
-        popup_text = "Zipcode: {} \nROI: {}  \nPopulation: {} \ ".format(ROI,Zipcode,Population)
+        popup_text = "Zipcode: {} \nROI: {}  \nPopulation: {} \ ".format(Zipcode,ROI,Population)
         popup = folium.Popup(popup_text, parse_html=True)
         if X['2Yr-ROI'][i] <0:
             marker = folium.Marker([lat,long], popup=popup, icon=Icon(color='darkred', icon_color='white', icon='info-sign')).add_to(pitt_map)
