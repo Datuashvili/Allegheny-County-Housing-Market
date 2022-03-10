@@ -44,16 +44,16 @@ For House price estimation I trained Ridge Regression Model:
 * Test set R^2: 0.8314699491709845, Training set mean absolute error: 49688.01850678622, cros validations score 5 folds for model: 0.83201578 0.81327462 0.81997816 0.81525159 0.82507495
 
 For House Price Forecast and Trend:
-* I selected only last 11 years to avoid market shoks coused by 2008 housing mrket booble to have more acurate predictions
-* Total observations 131076 observations
-* checked stationarity
-* agregated data by zip code. total 64 zip codes 
-* Build individual SARIMAX models for each zip code, let's see couple of them below. 
+* I selected only last 11 years to avoid market shoks coused by 2008 housing mrket booble to have more acurate predictions.
+* Total observations 131076 observations.
+* checked stationarity.
+* agregated data by zip code. total 72 zip codes.
+* Build individual SARIMAX models for each zip code.
 * App gives you ability to compare historical prices to predicted prices. 
+* Finaly calculate return on investment for each zip code forecast and identify zip codes that show an upward trend
 
-![SARIMAX](https://github.com/Datuashvili/Allegheny-County-Housing-Market/blob/main/2.png)
 
-Let's see how the map will change based on predictions 
+Let's see how real estate prices have changed overtime and will change based on predictions 
 <img src="https://github.com/Datuashvili/Allegheny-County-Housing-Market/blob/main/diff_time_forecast.png" width="100000" >                                                                                                                
                                                                                                                 
                                                                                                                 
