@@ -51,7 +51,7 @@ For House Price Forecast and Trend:
 * Build individual SARIMAX models for each zip code, let's see couple of them below. 
 * App gives you ability to compare historical prices to predicted prices. 
 
-![SARIMAX](https://github.com/Datuashvili/Allegheny-County-Housing-Market/blob/main/4.png)
+![SARIMAX](https://github.com/Datuashvili/Allegheny-County-Housing-Market/blob/main/2.png)
 
 Let's see how the map will change based on predictions 
 <img src="https://github.com/Datuashvili/Allegheny-County-Housing-Market/blob/main/diff_time_forecast.png" width="100000" >                                                                                                                
