@@ -282,7 +282,7 @@ null7_0,row7_1, row7_2,= st.columns((10,20, 10))
 
 pitt_map = folium.Map(location=[40.45, -79.97],
                         zoom_start=10,
-                        tiles='CartoDB positron')
+                        tiles='OpenStreetMap')
 
 def forecast_map(X):
     for i in X.index:
