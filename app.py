@@ -208,7 +208,7 @@ with row5_3:
     
 
 
-zipcode_forecast = row5_3.selectbox('', options=list(house_data.PROPERTYZIP.unique()))
+zipcode_forecast = row5_3.selectbox('', options=list(forecast_table.Zipcode.unique()))
 btn2 = row5_3.button('Get House Price Forecast')  
 
 
